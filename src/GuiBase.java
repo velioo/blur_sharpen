@@ -30,16 +30,15 @@ public class GuiBase extends JFrame {
 	  
 	  public GuiBase() throws IOException {
 	    super();
-	    this.setTitle("FilterMage - image tool");
 	    Container container = getContentPane();
 	    
-	    this.setTitle("FilterMage - image Tool");
+	    this.setTitle("FilterMage - image tool");
 	    
 	    displayPanel = new CPanel(null);
 	    container.add(displayPanel);    
 	    
 	    JMenuBar menuBar = new JMenuBar();
-		MenuBarProperties menuproperties = new MenuBarProperties(menuBar); // ïî-äîáðå èçãëåæäàùà ïðîãðàìà	
+		MenuBarProperties menuproperties = new MenuBarProperties(menuBar); // по-добре изглеждаща програма	
 		this.setJMenuBar(menuBar);		
 		JMenu mnFile = new JMenu("  File  ");
 		menuBar.add(mnFile);
@@ -47,20 +46,20 @@ public class GuiBase extends JFrame {
 		
 		JMenuItem mntmOpenFile = new JMenuItem("Open File...");
 		
-		mntmOpenFile.addActionListener(new ActionListener() { // Èçïúëíÿâà ñå êîãàòî ïîòðåáèòåëÿò èçáåðå "Open File..." îò ìåíþòî
+		mntmOpenFile.addActionListener(new ActionListener() { // Изпълнява се когато потребителят избере "Open File..." от менюто
 			public void actionPerformed(ActionEvent event) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							String filePath = fileOpenRead.OpenImage(); // âçèìàìå àáñîëþòíèÿò ïúò íà èçáðàíèÿ ôàéë
+							String filePath = fileOpenRead.OpenImage(); // взимаме абсолютният път на избрания файл
 							if(filePath != null) {
-								displayPanel.reConstruct(filePath); // ïîäàâàìå ãî íà ïàíåë, â êîéòî ùå áúäå îáðàáîòâàí
-								setSize(displayPanel.getWidth(), displayPanel.getHeight()); // Ïðåîðàçìåðÿâàíå ïðîçîðåöà ñïðÿìî ðàçìåðèòå íà èçîáðàæåíèåòî
+								displayPanel.reConstruct(filePath); // подаваме го на панел, в който ще бъде обработван
+								setSize(displayPanel.getWidth(), displayPanel.getHeight()); // Преоразмеряване прозореца спрямо размерите на изображението
 							    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 							    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
 							    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-							    frame.setLocation(x, y); // öåíòðèðàìå ïðîçîðåöà
-								resizedNew(); // èçâèêâàìå òàçè ôóíêöèÿ, èíà÷å âåðîÿòíî èçîáðàæåíèåòî ùå áúäå íàðèñóâàíî âúðõó áóòîíèòå...
+							    frame.setLocation(x, y); // центрираме прозореца
+								resizedNew(); // извикваме тази функция, иначе вероятно изображението ще бъде нарисувано върху бутоните...
 							}
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -77,12 +76,12 @@ public class GuiBase extends JFrame {
 
 		JMenuItem mntmSaveImageAs = new JMenuItem("Save Image as...");
 		
-		mntmSaveImageAs.addActionListener(new ActionListener() {// Èçïúëíÿâà ñå êîãàòî ïîòðåáèòåëÿò èçáåðå "Save Image as..." îò ìåíþòî
+		mntmSaveImageAs.addActionListener(new ActionListener() {// Изпълнява се когато потребителят избере "Save Image as..." от менюто
 			public void actionPerformed(ActionEvent event) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							fileSaveClose.saveImage(displayPanel.bi); // çàïàçâàìå òåêóùîòî èçîáðàæåíèå, êàòî ãî ïîäàâàìå íà èíñòàíöèÿòà fileSaveClose
+							fileSaveClose.saveImage(displayPanel.bi); // запазваме текущото изображение, като го подаваме на инстанцията fileSaveClose
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -120,12 +119,12 @@ public class GuiBase extends JFrame {
 	      }
 	    });
 	    
-	    setSize(displayPanel.getWidth(), displayPanel.getHeight()); // ïðåîðàçìåðÿâàìå ïðîçîðåöà
+	    setSize(displayPanel.getWidth(), displayPanel.getHeight()); // преоразмеряваме прозореца
 	    
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize(); 
 	    int x = (int) ((dimension.getWidth() - (this).getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - (this).getHeight()) / 2);
-	    (this).setLocation(x, y); // öåíòðèðàìåð ïðîçîðåöà
+	    (this).setLocation(x, y); // центрирамер прозореца
 	    
 	    setVisible(true); 
 }
@@ -158,7 +157,7 @@ public class GuiBase extends JFrame {
 		    }
 		  }
 	  
-		public void resizedNew() { // ïðåäîòâðàòÿâàìå èçîáðàæåíèåòî äà áúäå íàðèñóâàíî âúðõó áóòîíèòå
+		public void resizedNew() { // предотвратяваме изображението да бъде нарисувано върху бутоните
 			if(resizeNewCount == 0) {
 				this.setSize(new Dimension(this.getWidth() + 1,this.getHeight() + 1));
 				resizeNewCount++;
