@@ -6,7 +6,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class FileOpenRead {
 	
 	/*
-	 * Функцията отваря файл, избран от потребителя и връща неговият абсолютен път 
+	 * Р¤СѓРЅРєС†РёСЏС‚Р° РѕС‚РІР°СЂСЏ С„Р°Р№Р», РёР·Р±СЂР°РЅ РѕС‚ РїРѕС‚СЂРµР±РёС‚РµР»СЏ Рё РІСЂСЉС‰Р° РЅРµРіРѕРІРёСЏС‚ Р°Р±СЃРѕР»СЋС‚РµРЅ РїСЉС‚ 
 	 */
 	@SuppressWarnings("resource")
 	public String OpenImage() {
