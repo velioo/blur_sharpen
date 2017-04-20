@@ -150,6 +150,7 @@ class CPanel extends JLabel implements MouseWheelListener	{
 		   * kernel - матрицата, с която ще бъде филтрирано изображението
 		   * convole - Чрез него се извършва филтрирането.
 		   */
+		  
 		  public void blur() {
 		    float data[] = { 0.0625f, 0.125f, 0.0625f, 0.125f, 0.25f, 0.125f,
 		        0.0625f, 0.125f, 0.0625f };
