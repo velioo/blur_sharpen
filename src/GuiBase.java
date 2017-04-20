@@ -32,6 +32,8 @@ public class GuiBase extends JFrame {
 	    super();
 	    Container container = getContentPane();
 	    
+	    this.setTitle("Programa");
+	    
 	    displayPanel = new CPanel(null);
 	    container.add(displayPanel);    
 	    
@@ -132,17 +134,25 @@ public class GuiBase extends JFrame {
 		      JButton button = (JButton) e.getSource();
 
 		      if (button.equals(sharpenButton)) {
-		        displayPanel.sharpen();
-		        displayPanel.repaint();
+		    	if(displayPanel.displayImage != null) {
+			        displayPanel.sharpen();
+			        displayPanel.repaint();
+		    	} 
 		      } else if (button.equals(blurringButton)) {
-		        displayPanel.blur();
-		        displayPanel.repaint();
+		    	if(displayPanel.displayImage != null) {
+			        displayPanel.blur();
+			        displayPanel.repaint();
+		    	}
 		      } else if (button.equals(edButton)) {
-		        displayPanel.edgeDetect();
-		        displayPanel.repaint();
+		    	  if(displayPanel.displayImage != null) {
+			        displayPanel.edgeDetect();
+			        displayPanel.repaint();
+		    	  }
 		      } else if (button.equals(resetButton)) {
-		        displayPanel.reset();
-		        displayPanel.repaint();
+		    	 if(displayPanel.displayImage != null) {
+		    	    displayPanel.reset();
+		    	    displayPanel.repaint();
+		    	 }
 		      }
 		    }
 		  }
