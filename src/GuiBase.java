@@ -32,7 +32,7 @@ public class GuiBase extends JFrame {
 	    super();
 	    Container container = getContentPane();
 	    
-	    this.setTitle("Programa");
+	    this.setTitle("FilterMage - image Tool");
 	    
 	    displayPanel = new CPanel(null);
 	    container.add(displayPanel);    
