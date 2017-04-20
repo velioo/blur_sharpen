@@ -12,8 +12,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class FileSaveClose {
 
 	/*
-	 * Функцията създава нов файл на избрано от потребителя място в системата. 
-	 * image - изображението, което ще бъде запазено
+	 * Р¤СѓРЅРєС†РёСЏС‚Р° СЃСЉР·РґР°РІР° РЅРѕРІ С„Р°Р№Р» РЅР° РёР·Р±СЂР°РЅРѕ РѕС‚ РїРѕС‚СЂРµР±РёС‚РµР»СЏ РјСЏСЃС‚Рѕ РІ СЃРёСЃС‚РµРјР°С‚Р°. 
+	 * image - РёР·РѕР±СЂР°Р¶РµРЅРёРµС‚Рѕ, РєРѕРµС‚Рѕ С‰Рµ Р±СЉРґРµ Р·Р°РїР°Р·РµРЅРѕ
 	 */
 	public void saveImage(BufferedImage image) throws IOException {
 		

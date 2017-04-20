@@ -36,7 +36,7 @@ public class GuiBase extends JFrame {
 	    container.add(displayPanel);    
 	    
 	    JMenuBar menuBar = new JMenuBar();
-		MenuBarProperties menuproperties = new MenuBarProperties(menuBar); // по-добре изглеждаща програма	
+		MenuBarProperties menuproperties = new MenuBarProperties(menuBar); // РїРѕ-РґРѕР±СЂРµ РёР·РіР»РµР¶РґР°С‰Р° РїСЂРѕРіСЂР°РјР°	
 		this.setJMenuBar(menuBar);		
 		JMenu mnFile = new JMenu("  File  ");
 		menuBar.add(mnFile);
@@ -44,20 +44,20 @@ public class GuiBase extends JFrame {
 		
 		JMenuItem mntmOpenFile = new JMenuItem("Open File...");
 		
-		mntmOpenFile.addActionListener(new ActionListener() { // Изпълнява се когато потребителят избере "Open File..." от менюто
+		mntmOpenFile.addActionListener(new ActionListener() { // РР·РїСЉР»РЅСЏРІР° СЃРµ РєРѕРіР°С‚Рѕ РїРѕС‚СЂРµР±РёС‚РµР»СЏС‚ РёР·Р±РµСЂРµ "Open File..." РѕС‚ РјРµРЅСЋС‚Рѕ
 			public void actionPerformed(ActionEvent event) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							String filePath = fileOpenRead.OpenImage(); // взимаме абсолютният път на избрания файл
+							String filePath = fileOpenRead.OpenImage(); // РІР·РёРјР°РјРµ Р°Р±СЃРѕР»СЋС‚РЅРёСЏС‚ РїСЉС‚ РЅР° РёР·Р±СЂР°РЅРёСЏ С„Р°Р№Р»
 							if(filePath != null) {
-								displayPanel.reConstruct(filePath); // подаваме го на панел, в който ще бъде обработван
-								setSize(displayPanel.getWidth(), displayPanel.getHeight()); // Преоразмеряване прозореца спрямо размерите на изображението
+								displayPanel.reConstruct(filePath); // РїРѕРґР°РІР°РјРµ РіРѕ РЅР° РїР°РЅРµР», РІ РєРѕР№С‚Рѕ С‰Рµ Р±СЉРґРµ РѕР±СЂР°Р±РѕС‚РІР°РЅ
+								setSize(displayPanel.getWidth(), displayPanel.getHeight()); // РџСЂРµРѕСЂР°Р·РјРµСЂСЏРІР°РЅРµ РїСЂРѕР·РѕСЂРµС†Р° СЃРїСЂСЏРјРѕ СЂР°Р·РјРµСЂРёС‚Рµ РЅР° РёР·РѕР±СЂР°Р¶РµРЅРёРµС‚Рѕ
 							    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 							    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
 							    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-							    frame.setLocation(x, y); // центрираме прозореца
-								resizedNew(); // извикваме тази функция, иначе вероятно изображението ще бъде нарисувано върху бутоните...
+							    frame.setLocation(x, y); // С†РµРЅС‚СЂРёСЂР°РјРµ РїСЂРѕР·РѕСЂРµС†Р°
+								resizedNew(); // РёР·РІРёРєРІР°РјРµ С‚Р°Р·Рё С„СѓРЅРєС†РёСЏ, РёРЅР°С‡Рµ РІРµСЂРѕСЏС‚РЅРѕ РёР·РѕР±СЂР°Р¶РµРЅРёРµС‚Рѕ С‰Рµ Р±СЉРґРµ РЅР°СЂРёСЃСѓРІР°РЅРѕ РІСЉСЂС…Сѓ Р±СѓС‚РѕРЅРёС‚Рµ...
 							}
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -74,12 +74,12 @@ public class GuiBase extends JFrame {
 
 		JMenuItem mntmSaveImageAs = new JMenuItem("Save Image as...");
 		
-		mntmSaveImageAs.addActionListener(new ActionListener() {// Изпълнява се когато потребителят избере "Save Image as..." от менюто
+		mntmSaveImageAs.addActionListener(new ActionListener() {// РР·РїСЉР»РЅСЏРІР° СЃРµ РєРѕРіР°С‚Рѕ РїРѕС‚СЂРµР±РёС‚РµР»СЏС‚ РёР·Р±РµСЂРµ "Save Image as..." РѕС‚ РјРµРЅСЋС‚Рѕ
 			public void actionPerformed(ActionEvent event) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							fileSaveClose.saveImage(displayPanel.bi); // запазваме текущото изображение, като го подаваме на инстанцията fileSaveClose
+							fileSaveClose.saveImage(displayPanel.bi); // Р·Р°РїР°Р·РІР°РјРµ С‚РµРєСѓС‰РѕС‚Рѕ РёР·РѕР±СЂР°Р¶РµРЅРёРµ, РєР°С‚Рѕ РіРѕ РїРѕРґР°РІР°РјРµ РЅР° РёРЅСЃС‚Р°РЅС†РёСЏС‚Р° fileSaveClose
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -117,12 +117,12 @@ public class GuiBase extends JFrame {
 	      }
 	    });
 	    
-	    setSize(displayPanel.getWidth(), displayPanel.getHeight()); // преоразмеряваме прозореца
+	    setSize(displayPanel.getWidth(), displayPanel.getHeight()); // РїСЂРµРѕСЂР°Р·РјРµСЂСЏРІР°РјРµ РїСЂРѕР·РѕСЂРµС†Р°
 	    
 	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize(); 
 	    int x = (int) ((dimension.getWidth() - (this).getWidth()) / 2);
 	    int y = (int) ((dimension.getHeight() - (this).getHeight()) / 2);
-	    (this).setLocation(x, y); // центрирамер прозореца
+	    (this).setLocation(x, y); // С†РµРЅС‚СЂРёСЂР°РјРµСЂ РїСЂРѕР·РѕСЂРµС†Р°
 	    
 	    setVisible(true); 
 }
@@ -147,7 +147,7 @@ public class GuiBase extends JFrame {
 		    }
 		  }
 	  
-		public void resizedNew() { // предотвратяваме изображението да бъде нарисувано върху бутоните
+		public void resizedNew() { // РїСЂРµРґРѕС‚РІСЂР°С‚СЏРІР°РјРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµС‚Рѕ РґР° Р±СЉРґРµ РЅР°СЂРёСЃСѓРІР°РЅРѕ РІСЉСЂС…Сѓ Р±СѓС‚РѕРЅРёС‚Рµ
 			if(resizeNewCount == 0) {
 				this.setSize(new Dimension(this.getWidth() + 1,this.getHeight() + 1));
 				resizeNewCount++;
